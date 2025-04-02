@@ -4,15 +4,15 @@ export function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function getTestCookieValue() {
-  const cookieStore = cookies();
+export async function getTestCookieValue() {
+  const cookieStore = await cookies();
   const test = cookieStore.get('testcookie');
 
   return test?.value;
 }
 
-export function DisplayHeaders() {
-  const headerList = headers();
+export async function DisplayHeaders() {
+  const headerList = await headers();
   const allheaders = [];
 
   for (const pair of headerList.entries()) {
